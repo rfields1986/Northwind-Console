@@ -22,8 +22,8 @@ namespace NorthwindConsole
                     Console.WriteLine("2) Add Category");
                     Console.WriteLine("3) Display Category and related products");
                     Console.WriteLine("4) Display all Categories and their related products");
-                    Console.WriteLine("\"q\" to quit");
                     choice = Console.ReadLine();
+                    Console.WriteLine("\"q\" to quit");
                     Console.Clear();
                     logger.Info($"Option {choice} selected");
                     if (choice == "1")
@@ -62,7 +62,8 @@ namespace NorthwindConsole
                             else
                             {
                                 logger.Info("Validation passed");
-                                // TODO: save category to db
+                                db.Categories.Add(category);
+                                db.SaveChanges();
                             }
                         }
                         if (!isValid)
